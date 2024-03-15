@@ -23,5 +23,4 @@ public class DemoJob implements JobHandler {
         List<AdminUserDO> users = adminUserMapper.selectList();
         return "用户数量：" + users.size();
     }
-
 }
