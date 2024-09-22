@@ -17,7 +17,7 @@ import cn.iocoder.yudao.module.promotion.controller.admin.seckill.vo.activity.Se
 import cn.iocoder.yudao.module.promotion.controller.admin.seckill.vo.activity.SeckillActivityUpdateReqVO;
 import cn.iocoder.yudao.module.promotion.controller.admin.seckill.vo.product.SeckillProductBaseVO;
 import cn.iocoder.yudao.module.promotion.controller.app.seckill.vo.activity.AppSeckillActivityPageReqVO;
-import cn.iocoder.yudao.module.promotion.convert.seckill.seckillactivity.SeckillActivityConvert;
+import cn.iocoder.yudao.module.promotion.convert.seckill.SeckillActivityConvert;
 import cn.iocoder.yudao.module.promotion.dal.dataobject.seckill.SeckillActivityDO;
 import cn.iocoder.yudao.module.promotion.dal.dataobject.seckill.SeckillConfigDO;
 import cn.iocoder.yudao.module.promotion.dal.dataobject.seckill.SeckillProductDO;
@@ -276,7 +276,7 @@ public class SeckillActivityServiceImpl implements SeckillActivityService {
     }
 
     @Override
-    public List<SeckillProductDO> getSeckillProductListByActivityId(Collection<Long> activityIds) {
+    public List<SeckillProductDO> getSeckillProductListByActivityIds(Collection<Long> activityIds) {
         return seckillProductMapper.selectListByActivityId(activityIds);
     }
 
@@ -334,6 +334,11 @@ public class SeckillActivityServiceImpl implements SeckillActivityService {
         // 2.查询活动详情
         return seckillActivityMapper.selectListByIdsAndDateTimeLt(
                 convertSet(spuIdAndActivityIdMaps, map -> MapUtil.getLong(map, "activityId")), dateTime);
+    }
+
+    @Override
+    public List<SeckillActivityDO> getSeckillActivityListByIds(Collection<Long> ids) {
+        return seckillActivityMapper.selectList(SeckillActivityDO::getId, ids);
     }
 
 }
