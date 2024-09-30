@@ -72,7 +72,7 @@ public class BpmModelServiceImpl implements BpmModelService {
             modelQuery.modelCategory(pageVO.getCategory());
         }
         // 执行查询
-        List<Model> models = modelQuery.modelTenantId(TenantContextHolder.getTenantIdStr())
+        List<Model> models = modelQuery
                 .orderByCreateTime().desc()
                 .listPage(PageUtils.getStart(pageVO), pageVO.getPageSize());
 
@@ -108,6 +108,7 @@ public class BpmModelServiceImpl implements BpmModelService {
 
         // 创建流程定义
         Model model = repositoryService.newModel();
+        model.setTenantId("0");
         BpmModelConvert.INSTANCE.copy(model, createReqVO);
         model.setTenantId(TenantContextHolder.getTenantIdStr());
         // 保存流程定义

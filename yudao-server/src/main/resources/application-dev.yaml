@@ -44,23 +44,23 @@ spring:
       datasource:
         master:
           name: ruoyi-vue-pro
-          url: jdbc:mysql://192.168.103.240:3306/${spring.datasource.dynamic.datasource.master.name}?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=false
-          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://192.168.106.192:3306/${spring.datasource.dynamic.datasource.master.name}?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
           username: root
-          password: mysql_7MdZzA
+          password: XMP3gcevBpcTX
         slave: # 模拟从库，可根据自己需要修改 # 模拟从库，可根据自己需要修改
           name: ruoyi-vue-pro
-          url: jdbc:mysql://192.168.103.240:3306/${spring.datasource.dynamic.datasource.slave.name}?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=false
-          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://192.168.106.192:3306/${spring.datasource.dynamic.datasource.slave.name}?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+          driver-class-name: com.mysql.cj.jdbc.Driver
           username: root
-          password: mysql_7MdZzA
+          password: XMP3gcevBpcTX
 
   # Redis 配置。Redisson 默认的配置足够使用，一般不需要进行调优
   redis:
-    host: 192.168.103.240 # 地址
+    host: 192.168.106.182 # 地址
     port: 6379 # 端口
-    database: 1 # 数据库索引
-    password: jhkdjhkjdhsIUTYURTU_fZirBb # 密码，建议生产环境开启
+    database: 10 # 数据库索引
+    password: Redis_1qaz # 密码，建议生产环境开启
 
 --- #################### 定时任务相关配置 ####################
 

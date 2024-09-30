@@ -234,7 +234,7 @@ public class BpmProcessDefinitionServiceImpl implements BpmProcessDefinitionServ
             definitionQuery.active();
         }
         // 执行查询
-        definitionQuery.processDefinitionTenantId(TenantContextHolder.getTenantIdStr());
+//        definitionQuery.processDefinitionTenantId(TenantContextHolder.getTenantIdStr());
         List<ProcessDefinition> processDefinitions = definitionQuery.list();
         if (CollUtil.isEmpty(processDefinitions)) {
             return Collections.emptyList();
