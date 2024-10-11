@@ -14,7 +14,7 @@
     <url>https://github.com/YunaiV/ruoyi-vue-pro</url>
 
     <properties>
-        <revision>2.2.0-jdk8-snapshot</revision>
+        <revision>2.3.0-jdk8-SNAPSHOT</revision>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
         <!-- 统一依赖管理 -->
         <spring.framework.version>5.3.39</spring.framework.version>
@@ -66,6 +66,7 @@
         <ip2region.version>2.7.0</ip2region.version>
         <bizlog-sdk.version>3.0.6</bizlog-sdk.version>
         <netty.version>4.1.113.Final</netty.version>
+        <mqtt.version>1.2.5</mqtt.version>
         <!-- 三方云服务相关 -->
         <okio.version>3.5.0</okio.version>
         <okhttp3.version>4.11.0</okhttp3.version>
@@ -626,6 +627,13 @@
                 </exclusions>
             </dependency>
 
+            <!-- MQTT -->
+            <dependency>
+                <groupId>org.eclipse.paho</groupId>
+                <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+                <version>${mqtt.version}</version>
+            </dependency>
+
             <!-- 专属于 JDK8 安全漏洞升级 -->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
@@ -648,7 +656,7 @@
                 <artifactId>flatten-maven-plugin</artifactId>
                 <version>${flatten-maven-plugin.version}</version>
                 <configuration>
-                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                    <flattenMode>bom</flattenMode>
                     <updatePomFile>true</updatePomFile>
                 </configuration>
                 <executions>
