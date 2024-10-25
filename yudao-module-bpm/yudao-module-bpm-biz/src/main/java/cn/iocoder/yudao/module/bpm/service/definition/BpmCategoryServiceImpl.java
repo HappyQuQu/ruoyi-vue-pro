@@ -37,6 +37,7 @@ public class BpmCategoryServiceImpl implements BpmCategoryService {
         validateCategoryNameUnique(createReqVO);
         validateCategoryCodeUnique(createReqVO);
         // 插入
+
         BpmCategoryDO category = BeanUtils.toBean(createReqVO, BpmCategoryDO.class);
         bpmCategoryMapper.insert(category);
         return category.getId();

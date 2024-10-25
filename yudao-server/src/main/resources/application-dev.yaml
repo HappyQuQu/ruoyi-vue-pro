@@ -43,28 +43,28 @@ spring:
       primary: master
       datasource:
         master:
-          url: jdbc:mysql://127.0.0.1:3306/ruoyi-vue-pro?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true # MySQL Connector/J 8.X 连接的示例
+          url: jdbc:mysql://192.168.106.192:3306/ruoyi-vue-pro?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true # MySQL Connector/J 8.X 连接的示例
           username: root
-          password: 123456
+          password: XMP3gcevBpcTX
         slave: # 模拟从库，可根据自己需要修改 # 模拟从库，可根据自己需要修改
           lazy: true # 开启懒加载，保证启动速度
-          url: jdbc:mysql://127.0.0.1:3306/ruoyi-vue-pro?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true # MySQL Connector/J 8.X 连接的示例
+          url: jdbc:mysql://192.168.106.192:3306/ruoyi-vue-pro?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true # MySQL Connector/J 8.X 连接的示例
           username: root
-          password: 123456
+          password: XMP3gcevBpcTX
 
   # Redis 配置。Redisson 默认的配置足够使用，一般不需要进行调优
   redis:
-    host: 400-infra.server.iocoder.cn # 地址
+    host: 192.168.106.182 # 地址
     port: 6379 # 端口
-    database: 1 # 数据库索引
-#    password: 123456 # 密码，建议生产环境开启
+    database: 11 # 数据库索引
+    password: Redis_1qaz # 密码，建议生产环境开启
 
 --- #################### 定时任务相关配置 ####################
 
 # Quartz 配置项，对应 QuartzProperties 配置类
 spring:
   quartz:
-    auto-startup: true # 测试环境，需要开启 Job
+    auto-startup: false # 测试环境，需要开启 Job
     scheduler-name: schedulerName # Scheduler 名字。默认为 schedulerName
     job-store-type: jdbc # Job 存储器类型。默认为 memory 表示内存，可选 jdbc 使用数据库。
     wait-for-jobs-to-complete-on-shutdown: true # 应用关闭时，是否等待定时任务执行完成。默认为 false ，建议设置为 true
@@ -99,10 +99,10 @@ rocketmq:
 spring:
   # RabbitMQ 配置项，对应 RabbitProperties 配置类
   rabbitmq:
-    host: 127.0.0.1 # RabbitMQ 服务的地址
+    host: 192.168.106.193 # RabbitMQ 服务的地址
     port: 5672 # RabbitMQ 服务的端口
-    username: guest # RabbitMQ 服务的账号
-    password: guest # RabbitMQ 服务的密码
+    username: rabbitmq # RabbitMQ 服务的账号
+    password: rabbitmq # RabbitMQ 服务的密码
   # Kafka 配置项，对应 KafkaProperties 配置类
   kafka:
     bootstrap-servers: 127.0.0.1:9092 # 指定 Kafka Broker 地址，可以设置多个，以逗号分隔
@@ -167,7 +167,7 @@ yudao:
   pay:
     order-notify-url: http://yunai.natapp1.cc/admin-api/pay/notify/order # 支付渠道的【支付】回调地址
     refund-notify-url: http://yunai.natapp1.cc/admin-api/pay/notify/refund # 支付渠道的【退款】回调地址
-  demo: true # 开启演示模式
+  demo: false # 开启演示模式
   tencent-lbs-key: TVDBZ-TDILD-4ON4B-PFDZA-RNLKH-VVF6E # QQ 地图的密钥 https://lbs.qq.com/service/staticV2/staticGuide/staticDoc
 
 justauth:
